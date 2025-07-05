@@ -1,0 +1,28 @@
+name: Index Librexam Test Repositories
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' 
+  workflow_dispatch:
+
+jobs:
+  index-repos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Fetch repos with topic librexam-test
+        run: |
+          curl -s "https://api.github.com/search/repositories?q=topic:librexam-test&sort=updated&order=desc&per_page=100" \
+            -H "Accept: application/vnd.github+json" \
+            | jq '{fetched_at: now | todate, total_count, repositories: [.items[] | {name, full_name, html_url, description, owner: .owner.login, updated_at, stargazers_count}]}' \
+            > indexedRepos.json
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add indexedRepos.json
+          git diff --quiet && echo "No changes to commit" || (git commit -m "Update indexed repos" && git push)
