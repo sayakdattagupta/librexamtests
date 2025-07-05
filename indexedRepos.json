@@ -1,0 +1,15 @@
+{
+  "fetched_at": "2025-07-05T13:26:29Z",
+  "total_count": 1,
+  "repositories": [
+    {
+      "name": "testRepo",
+      "full_name": "librexam/testRepo",
+      "html_url": "https://github.com/librexam/testRepo",
+      "description": null,
+      "owner": "librexam",
+      "updated_at": "2025-07-05T13:14:31Z",
+      "stargazers_count": 0
+    }
+  ]
+}
