@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2025-07-06T03:03:59Z",
-  "total_count": 1,
+  "fetched_at": "2025-07-06T03:59:33Z",
+  "total_count": 2,
   "repositories": [
     {
       "name": "testRepo",
@@ -9,6 +9,15 @@
       "description": null,
       "owner": "librexam",
       "updated_at": "2025-07-05T13:14:31Z",
+      "stargazers_count": 0
+    },
+    {
+      "name": "librebam",
+      "full_name": "MajumderDebaditya/librebam",
+      "html_url": "https://github.com/MajumderDebaditya/librebam",
+      "description": null,
+      "owner": "MajumderDebaditya",
+      "updated_at": "2025-07-06T03:30:37Z",
       "stargazers_count": 0
     }
   ]
