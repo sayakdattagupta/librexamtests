@@ -24,31 +24,25 @@ jobs:
         run: |
           echo "Fetching repositories with topic: librexam-test"
 
-          # Get the list of repos with the topic
           curl -s "https://api.github.com/search/repositories?q=topic:librexam-test&per_page=100" \
             -H "Accept: application/vnd.github+json" > repos.json
 
-          # Extract relevant info and store in array
           jq -r '.items[] | [.full_name, .name, .html_url, .description, .owner.login, .stargazers_count] | @tsv' repos.json > raw_repos.tsv
 
-          # Start JSON output
           echo '{ "fetched_at": "'"$(date -u +%Y-%m-%dT%H:%M:%SZ)"'", "total_count": '$(wc -l < raw_repos.tsv)', "repositories": [' > indexedRepos.json
 
           FIRST=true
 
           while IFS=$'\t' read -r full_name name html_url description owner stargazers; do
-            # Fetch latest commit date
             latest_commit=$(curl -s "https://api.github.com/repos/$full_name/commits?per_page=1" \
               -H "Accept: application/vnd.github+json" | jq -r '.[0].commit.author.date')
 
-            # Comma separate entries
             if [ "$FIRST" = true ]; then
               FIRST=false
             else
               echo ',' >> indexedRepos.json
             fi
 
-            # Emit JSON for this repo
             jq -n --arg name "$name" \
                   --arg full_name "$full_name" \
                   --arg html_url "$html_url" \
