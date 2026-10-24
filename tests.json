@@ -1,0 +1,42 @@
+{
+  "tests": [
+    {
+      "name": "Sample Test",
+      "filename": "test1.json",
+      "author": "Sayak",
+      "duration": 3600,
+      "tags": [
+        "physics",
+        "mathematics",
+        "maths",
+        "jee"
+      ],
+      "description": "A sample Physics, Maths test",
+      "url": "https://raw.githubusercontent.com/librexam/testRepo/main/tests/test1.json",
+      "repo": "librexam/testRepo",
+      "updated_at": "2025-07-07T05:03:54Z",
+      "stargazers_count": 2
+    },
+    {
+      "name": "Thermodynamics in Mechanical Engineering",
+      "filename": "t.json",
+      "author": "Debaditya Majumder",
+      "duration": 3600,
+      "tags": [],
+      "description": "A test of undergraduate level thermodynamics",
+      "url": "https://raw.githubusercontent.com/MajumderDebaditya/librebam/main/t.json",
+      "repo": "MajumderDebaditya/librebam",
+      "updated_at": "2025-06-25T13:00:23Z",
+      "stargazers_count": 1
+    }
+  ],
+  "problems": [
+    {
+      "repo": "MajumderDebaditya/librebam",
+      "test": "Thermodynamics in Mechanical Engineering",
+      "warnings": [
+        "To think like an undergrad / Thermodynamics / Q2: answer 4 is out of range, options are 0-3."
+      ]
+    }
+  ]
+}
